@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,11 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'SSR_2';
+  public name: string = '';
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.route.queryParams.subscribe((params) => console.log(params));
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.name = params['name'];
+      console.log(params);
+    });
   }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-my-page',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-page.component.css'],
 })
 export class MyPageComponent {
-  name = 'Rohan';
-  city = 'Junagadh';
+  name: string = '';
+  city: string = '';
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.name = params['name'];
+      this.city = params['city'];
+      // console.log(params);
+    });
+  }
 }

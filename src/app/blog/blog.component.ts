@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -8,11 +9,20 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class BlogComponent implements OnInit {
   pageTitle: string | any;
+  user: { id: number; name: string } | any;
 
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(
+    private title: Title,
+    private meta: Meta,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.pageTitle = 'Blog';
+    this.user = {
+      id: this.route.snapshot.params['id'],
+      name: this.route.snapshot.params['name'],
+    };
+    console.log(this.user);
     this.title.setTitle(this.pageTitle);
     this.meta.addTag({ keyWords: 'angular 8, ssr,single page application' });
     this.meta.addTag({

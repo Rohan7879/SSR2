@@ -1,18 +1,9 @@
 <div class="content">
   <h1>{{ pageTitle }}</h1>
+  <h2>user with id is {{ user.id }} and name is {{ user.name }}</h2>
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, harum.
     Incidunt nemo deserunt earum velit at, dolore, ad quaerat explicabo magni,
     molestias doloremque.
   </p>
-
-  <a
-    class="nav-link"
-    [routerLink]="['/blog', 1, 'Rohan']"
-    [queryParams]="{ param1: 10, param2: 20 }"
-    [fragment]="'load'"
-    >queryParams</a
-  >
-
-  <a href="">Rohan</a>
 </div>
