@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['']">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/blog', 1, 'Rohan']"
+            [queryParams]="{ param1: 10, param2: 20 }"
+            [fragment]="'load'"
+            >Blog</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/mypage']"
+            [queryParams]="{ name: 'Rohan', city: 'junagadh' }"
+            >myPage</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="content">
+  <h1>Lorem, ipsum dolor.</h1>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam mollitia
+    quas esse delectus aliquid architecto asperiores cupiditate quo quasi
+    obcaecati a, quam minima explicabo ab placeat debitis laborum aliquam
+    dolorum deleniti sit illo.
+  </p>
+</div>
+
+<router-outlet></router-outlet>
